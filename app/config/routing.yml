@@ -1,0 +1,12 @@
+tvision_monitor:
+    resource: "@TvisionMonitorBundle/Resources/config/routing.php"
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+_monitor:
+    resource: "@LiipMonitorBundle/Resources/config/routing.yml"
+    prefix: /monitor/health
