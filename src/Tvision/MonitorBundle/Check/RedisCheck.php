@@ -23,6 +23,15 @@ class RedisCheck extends Check
         $this->port = $port;
     }
 
+    /**
+     * Checks if Redis is up using Telnet; the following scenarios can occur:
+     *
+     * 1. Redis is up and responds correcly echoes a message back => Ok;
+     * 2. Redis is up and *does not* responds correctly to echo message => Warning;
+     * 3. Redis is down => Critical.
+     *
+     * @return \Liip\Monitor\Result\CheckResult
+     */
     public function check() {
 
         $errCode = null;
