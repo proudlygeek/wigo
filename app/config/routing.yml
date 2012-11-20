@@ -9,4 +9,4 @@ tvision_monitor:
 
 _monitor:
     resource: "@LiipMonitorBundle/Resources/config/routing.yml"
-    prefix: /monitor/health
+    prefix: /

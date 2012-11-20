@@ -55,6 +55,8 @@ class RedisCheck extends Check
             return new CheckResult("Redis", "Connection was successful but message reply is wrong (" . $rawResponse .")", CheckResult::WARNING);
         }
 
+        fclose($c);
+
         return new CheckResult("Redis", "OK", CheckResult::OK);
     }
 
