@@ -1,5 +1,5 @@
 tvision_monitor:
-    resource: "@TvisionMonitorBundle/Resources/config/routing.php"
+    resource: "@TvisionMonitorBundle/Resources/config/routing.yml"
     prefix:   /
 
 # Internal routing configuration to handle ESI
@@ -9,4 +9,4 @@ tvision_monitor:
 
 _monitor:
     resource: "@LiipMonitorBundle/Resources/config/routing.yml"
-    prefix: /
+    prefix: /monitor

@@ -1,0 +1,5 @@
+services:
+  tvision.health.controller:
+      class: Tvision\MonitorBundle\Controller\HealthCheckController
+      arguments:
+          - @liip_monitor.check.runner

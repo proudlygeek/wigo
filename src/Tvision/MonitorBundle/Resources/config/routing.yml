@@ -1,0 +1,5 @@
+tvision_monitor_heartbeat:
+    pattern: /heartbeat
+    defaults: { _controller: TvisionMonitorBundle:HealthCheck:heartbeat }
+    requirements:
+        _method: GET
