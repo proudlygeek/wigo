@@ -39,12 +39,12 @@ class HostCheck extends Check
         fclose($fp);
 
         if ($result == "HTTP/1.0 200 OK\r\n") {
-            return new CheckResult("[HTTP CHECK for [" . $this->host . "]", "Server response was: " . $result, CheckResult::WARNING);
+            return new CheckResult("HTTP CHECK for [" . $this->host . "]", "Server response was: " . $result, CheckResult::WARNING);
         } else if ($result !== "HTTP/1.1 200 OK\r\n") {
-            return new CheckResult("[HTTP CHECK for [" . $this->host . "]", "Server response was: " . $result, CheckResult::CRITICAL);
+            return new CheckResult("HTTP CHECK for [" . $this->host . "]", "Server response was: " . $result, CheckResult::CRITICAL);
         }
 
-        return new CheckResult("[HTTP CHECK for [" . $this->host . "]", "OK", CheckResult::OK);
+        return new CheckResult("HTTP CHECK for [" . $this->host . "]", "OK", CheckResult::OK);
     }
 
     public function getName()

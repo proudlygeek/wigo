@@ -21,14 +21,17 @@ class HealthCheckController extends Controller
         $runner = $this->get('liip_monitor.check.runner');
 
         $results = $runner->runAllChecks();
-        $globalStatus = 'OK';
+        $globalStatus = '';
 
         foreach ($results as $id => $result) {
             $tmp = $result->toArray();
-            if ($tmp['status'] > CheckResult::WARNING) {
-                $globalStatus = 'KO';
-                break;
+            if ($tmp['status'] >= CheckResult::WARNING) {
+                $globalStatus .= 'KO | ' . $id . '. ' . $tmp['checkName'] . ':' . $tmp['message'] ."\n";
             }
+        }
+
+        if (strlen($globalStatus) == 0) {
+            $globalStatus = 'OK';
         }
 
         return new Response($globalStatus, 200, array('Content-Type' => 'text/plain'));
