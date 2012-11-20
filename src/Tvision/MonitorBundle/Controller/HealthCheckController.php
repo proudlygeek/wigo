@@ -25,7 +25,7 @@ class HealthCheckController extends Controller
 
         foreach ($results as $id => $result) {
             $tmp = $result->toArray();
-            if ($tmp['status'] >= CheckResult::WARNING) {
+            if ($tmp['status'] > CheckResult::WARNING) {
                 $globalStatus .= 'KO | ' . $id . '. ' . $tmp['checkName'] . ':' . $tmp['message'] ."\n";
             }
         }
