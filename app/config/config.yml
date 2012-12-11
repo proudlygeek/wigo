@@ -122,3 +122,10 @@ services:
         arguments: ["www.terracafe.eu"]
         tags:
           - { name: liip_monitor.check }
+
+    # Terravision Travel HTTP check
+    monitor.check.cms.terravisiontravel:
+        class: Tvision\MonitorBundle\Check\HostCheck
+        arguments: ["www.terravisiontravel.com"]
+        tags:
+          - { name: liip_monitor.check }
