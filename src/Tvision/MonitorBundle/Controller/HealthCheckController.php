@@ -25,7 +25,7 @@ class HealthCheckController extends Controller
 
         foreach ($results as $id => $result) {
             $tmp = $result->toArray();
-            if ($tmp['status'] > CheckResult::WARNING && !preg_match("/jig.terravision.eu/", $tmp['checkName'])) {
+            if ($tmp['status'] > CheckResult::WARNING && !preg_match("/jig.terravision.eu/", $tmp['checkName']) && !preg_match("/www.terravisiontravel.com/", $tmp['checkName'])) {
                 $globalStatus .= 'KO | ' . $id . '. ' . $tmp['checkName'] . ':' . $tmp['message'] ."\n";
             }
         }
