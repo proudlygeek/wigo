@@ -103,6 +103,12 @@ services:
         tags:
           - { name: liip_monitor.check }
 
+    monitor.check.bor.terravision:
+        class: Tvision\MonitorBundle\Check\HostCheck
+        arguments: ["bor.terravision.eu"]
+        tags:
+          - { name: liip_monitor.check }
+
     # Lowcost Parking HTTP Checks
     monitor.check.cms.lowcostparking:
         class: Tvision\MonitorBundle\Check\HostCheck
