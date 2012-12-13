@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.ini }
     - { resource: security.yml }
+    - { resource: hosts.yml }
 
 framework:
     #esi:             ~
@@ -57,81 +58,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-
-# Monitor health check config
-services:
-    monitor.check.redis:
-        class: Tvision\MonitorBundle\Check\RedisCheck
-        arguments: ["%cache_default_host%", "%cache_default_port%"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.cms.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["www.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.book.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["book.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.lup.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["lup.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.goe.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["goe.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.jig.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["jig.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.lav.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["lav.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.bor.terravision:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["bor.terravision.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    # Lowcost Parking HTTP Checks
-    monitor.check.cms.lowcostparking:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["www.lowcostparking.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    monitor.check.book.lowcostparking:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["book.lowcostparking.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    # Terracafe HTTP check
-    monitor.check.cms.terracafe:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["www.terracafe.eu"]
-        tags:
-          - { name: liip_monitor.check }
-
-    # Terravision Travel HTTP check
-    monitor.check.cms.terravisiontravel:
-        class: Tvision\MonitorBundle\Check\HostCheck
-        arguments: ["www.terravisiontravel.com"]
-        tags:
-          - { name: liip_monitor.check }

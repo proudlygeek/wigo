@@ -17,6 +17,11 @@ use Liip\Monitor\Result\CheckResult;
 class HealthCheckController extends Controller
 {
 
+
+    public function redirectAction(Request $request) {
+        return $this->redirect("/monitor");
+    }
+
     public function heartbeatAction(Request $request) {
         $runner = $this->get('liip_monitor.check.runner');
 

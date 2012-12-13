@@ -1,3 +1,7 @@
+tvision_monitor_redirect:
+    pattern: /
+    defaults: { _controller: TvisionMonitorBundle:HealthCheck:redirect }
+
 tvision_monitor_heartbeat:
     pattern: /heartbeat
     defaults: { _controller: TvisionMonitorBundle:HealthCheck:heartbeat }

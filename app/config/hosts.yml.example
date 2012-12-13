@@ -1,0 +1,14 @@
+# Example hosts file, just rename it and add yours :)
+
+services:
+    monitor.check.redis:
+        class: Tvision\MonitorBundle\Check\RedisCheck
+        arguments: ["%cache_default_host%", "%cache_default_port%"]
+        tags:
+          - { name: liip_monitor.check }
+
+    monitor.check.host-to-check:
+        class: Tvision\MonitorBundle\Check\HostCheck
+        arguments: ["www.example.com"]
+        tags:
+          - { name: liip_monitor.check }
