@@ -24,7 +24,7 @@ set :use_composer, true
 set  :keep_releases,  3
 set  :use_sudo,   false
 
-set :shared_files,    ["app/config/parameters.ini" ]
+set :shared_files,    ["app/config/parameters.ini", "app/config/hosts.yml" ]
 set :shared_children, [app_path + "/logs", web_path + "/uploads", "vendor"]
 
 # Be more verbose by uncommenting the following line
